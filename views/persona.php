@@ -34,7 +34,7 @@ require 'header.php';
                           <tbody>                         
                           </tbody>
                           <tfoot>
-                          <th>Opciones</th>
+                            <th>Opciones</th>
                             <th>Nombre</th>
                             <th>TipoPersona</th>
                             <th>Tipo Documento</th>
@@ -63,7 +63,13 @@ require 'header.php';
                         
                           <div class="form-group col-xs-12 col-sm-6">
                             <label>Tipo de Documento</label>
-                            <input type="text" class="form-control" name="tipodocumento" id="tipodocumento" maxlength="45" placeholder="Tipo Documento">
+                            <select class="form-control" name="tipodocumento" id="tipodocumento">
+                              <option value="dni">DNI</option>
+                              <option value="carnet extranjeria">CARNET DE EXTRANJERIA</option>
+                              <option value="pasaporte">PASAPORTE</option>
+                            </select>
+                            <!--<input type="text" class="form-control" name="tipodocumento" id="tipodocumento" maxlength="45" placeholder="Tipo Documento">
+                            -->
                           </div>
 
                           <div class="form-group col-xs-12 col-sm-6">
