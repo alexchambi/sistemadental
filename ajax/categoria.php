@@ -38,7 +38,7 @@
                                 $datos = Array();
                                 while($registro = $respuesta->fetch_object()){
                                     $datos[] = array(
-                                        "0"=>$registro->idcategoria,
+                                        "0"=>'<button class="btn btn-warning" onclick="mostrar('.$registro->idcategoria.')">Editar<i class = "fa fa-pencil"></i></button>',
                                         "1"=>$registro->nombre,
                                         "2"=>$registro->descripcion,
                                         "3"=>$registro->condicion
