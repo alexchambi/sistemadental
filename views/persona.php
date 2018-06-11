@@ -26,7 +26,7 @@ require 'header.php';
                             <th>Nombre</th>
                             <th>TipoPersona</th>
                             <th>Tipo Documento</th>
-                            <th>Numero Documento</th>
+                            <th>N° Documento</th>
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Email</th>
@@ -38,7 +38,7 @@ require 'header.php';
                             <th>Nombre</th>
                             <th>TipoPersona</th>
                             <th>Tipo Documento</th>
-                            <th>Numero Documento</th>
+                            <th>N° Documento</th>
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Email</th>  
@@ -58,7 +58,13 @@ require 'header.php';
 
                           <div class="form-group col-xs-12 col-sm-6">
                             <label>Tipo de Persona:</label>
-                            <input type="text" class="form-control" name="tipopersona" id="tipopersona" maxlength="50" placeholder="Tipo de persona" required>
+                            <select class="form-control" name="tipopersona" id="tipopersona">
+                              <option value="niño">Niño</option>
+                              <option value="adolescente">Adolescente</option>
+                              <option value="joven">Joven</option>
+                              <option value="adulto">Adulto</option>
+                              <option value="adulto mayor">Adulto Mayor</option>
+                            </select>
                           </div>
                         
                           <div class="form-group col-xs-12 col-sm-6">
@@ -68,13 +74,11 @@ require 'header.php';
                               <option value="carnet extranjeria">CARNET DE EXTRANJERIA</option>
                               <option value="pasaporte">PASAPORTE</option>
                             </select>
-                            <!--<input type="text" class="form-control" name="tipodocumento" id="tipodocumento" maxlength="45" placeholder="Tipo Documento">
-                            -->
                           </div>
 
                           <div class="form-group col-xs-12 col-sm-6">
                             <label>Numero de Documento</label>
-                            <input type="text" class="form-control" name="numerodocumento" id="numerodocumento"  placeholder="Numero de Documento">
+                            <input type="text" class="form-control" name="numdocumento" id="numdocumento"  placeholder="Numero de Documento">
                           </div>
 
                           <div class="form-group col-xs-12 col-sm-6">
@@ -91,6 +95,7 @@ require 'header.php';
                             <label>Email</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                           </div>
+                          
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button type="submit" id="btnGuardar" class="btn btn-primary" ><i class="fa fa-save"></i> Guardar</button>
 

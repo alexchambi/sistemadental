@@ -39,9 +39,10 @@
                                         "1"=>$registro->nombre,
                                         "2"=>$registro->tipopersona,
                                         "3"=>$registro->tipodocumento,
-                                        "4"=>$registro->direccion,
-                                        "5"=>$registro->telefono,
-                                        "6"=>$registro->email
+                                        "4"=>$registro->numdocumento,
+                                        "5"=>$registro->direccion,
+                                        "6"=>$registro->telefono,
+                                        "7"=>$registro->email
                                     );
                                 }
                                 $resultado = array(

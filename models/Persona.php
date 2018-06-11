@@ -8,10 +8,10 @@
 
         }
 
-        public function insertar($tipopersona, $nombre, $tipodocumento, $numdocumento, $direccion, $telefono, $email){
+        public function insertar($nombre, $tipopersona, $tipodocumento, $numdocumento, $direccion, $telefono, $email){
             
-            $sql = "INSERT INTO persona(tipopersona, nombre, tipodocumento, numdocumento, direccion, telefono, email) 
-                    VALUES ('$tipopersona','$nombre','$tipodocumento','$numdocumento','$direccion','$telefono', '$email')";
+            $sql = "INSERT INTO persona(nombre, tipopersona, tipodocumento, numdocumento, direccion, telefono, email) 
+                    VALUES ('$nombre','$tipopersona','$tipodocumento','$numdocumento','$direccion','$telefono', '$email')";
 
             return ejecutarConsulta($sql);
         }

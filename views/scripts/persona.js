@@ -71,7 +71,7 @@ function listar(){
                  */
                 "bDestroy": true,
                 "iDisplayLength": 5,
-                "order": [[0, "desc"]] 
+                "order": [[0, "asc"]] 
         }).DataTable();
 }
 
