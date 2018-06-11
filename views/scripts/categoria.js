@@ -11,9 +11,9 @@ function init(){
 }
 
 function limpiar(){
-    $("#idcategoria").val("");
     $("#nombre").val("");
     $("#descripcion").val("");
+    $("#idcategoria").val("");
 }
 
 function mostrarFormulario(flag){
@@ -22,10 +22,12 @@ function mostrarFormulario(flag){
         $("#listadoregistros").hide();
         $("#formularioregistros").show();
         $("$btnGuardar").prop("disabled",false);
+        $("$btnagregar").hide();
     }
     else{
         $("#listadoregistros").show();
         $("#formularioregistros").hide();
+        $("#btnagregar").show();
     }
 }
 
@@ -35,6 +37,7 @@ function cancelarFormulario(){
 }
 
 function listar(){
+    
     tabla = $('#tbllistado').dataTable(
         {
             /**

@@ -1,6 +1,5 @@
 <?php
     require_once("../models/Categoria.php");
-
     $categoria = new Categoria();
 
     $idcategoria = isset($_POST["idcategoria"])? limpiarCadena($_POST["idcategoria"]):"";
@@ -38,7 +37,7 @@
                                 $datos = Array();
                                 while($registro = $respuesta->fetch_object()){
                                     $datos[] = array(
-                                        "0"=>'<button class="btn btn-warning" onclick="mostrar('.$registro->idcategoria.')">Editar<i class = "fa fa-pencil"></i></button>',
+                                        "0"=>'<button class="btn btn-warning" onclick="onclick('.$registro->idcategoria.')">Editar<i class = "fa fa-pencil"></i></button>',
                                         "1"=>$registro->nombre,
                                         "2"=>$registro->descripcion,
                                         "3"=>$registro->condicion
