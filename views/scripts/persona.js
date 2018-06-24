@@ -99,4 +99,19 @@ function guardaryeditar(e)
     limpiar();
 }
 
+function mostrar(idpersona){
+    $.post("../ajax/persona.php?op=mostrar",{idpersona : idpersona},function(data, status) {
+        data = JSON.parse(data);
+        mostrarFormulario(true);
+
+        $("#nombre").val(data.nombre);
+        $("#tipopersona").val(data.tipopersona);
+        $("#tipodocumento").val(data.tipodocumento);
+        $("#numdocumento").val(data.numdocumento);
+        $("#direccion").val(data.direccion);
+        $("#telefono").val(data.telefono);
+        $("#email").val(data.email);
+    })
+}
+
 init();

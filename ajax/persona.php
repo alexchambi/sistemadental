@@ -21,7 +21,7 @@
                                     //insertar si no existe el txtidcategoria
                                 }
                                 else{
-                                    $respuesta = $persona->editar($nombre, $numdocumento, $direccion, $telefono, $email);
+                                    $respuesta = $persona->editar($idpersona, $nombre, $tipopersona, $numdocumento, $direccion, $telefono, $email);
                                     
                                     echo $respuesta ? "Persona Actualizada": "Persona no actualizada";
                                 }
@@ -35,7 +35,7 @@
                                 $datos = Array();
                                 while($registro = $respuesta->fetch_object()){
                                     $datos[] = array(
-                                        "0"=>$registro->idpersona,
+                                        "0"=>'<button class="btn" onclick="mostrar('.$registro->idpersona.')">Editar</button>',
                                         "1"=>$registro->nombre,
                                         "2"=>$registro->tipopersona,
                                         "3"=>$registro->tipodocumento,

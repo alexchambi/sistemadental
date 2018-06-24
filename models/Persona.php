@@ -39,7 +39,7 @@
         */
         public function mostrar($idpersona){
 
-            $sql = "SELECT* FROM persona WHERE id = '$idpersona'";
+            $sql = "SELECT* FROM persona WHERE idpersona = '$idpersona'";
 
             return ejecutarConsultaSimpleFila($sql);
         }
