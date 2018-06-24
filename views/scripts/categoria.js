@@ -121,7 +121,7 @@ var tabla;
 
 	//Función para activar registros
 	function activar(idcategoria){
-		alert(.confirm("¿Está Seguro de activar la Categoría?", function(result)){
+		bootbox.confirm("¿Está Seguro de activar la Categoría?", function(result){
 			if(result)
 			{
 				$.post("../ajax/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
