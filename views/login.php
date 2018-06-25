@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../public/css/font-awesome.css">
+    <link rel="stylesheet" href="public/css/font-awesome.css">
    
     <!-- Theme style -->
-    <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="public/css/AdminLTE.min.css">
     <!-- iCheck -->
-	<link rel="stylesheet" href="../public/css/blue.css">
-	<link rel="stylesheet" href="../public/css/miestilo.css">
+	<link rel="stylesheet" href="public/css/blue.css">
+	<link rel="stylesheet" href="public/css/miestilo.css">
 </head>
 
-<body class="hold-transition login-page" style="background-image: url('../public/images/fondo.jpg')">
+<body class="hold-transition login-page" style="background-image: url('public/images/fondo.jpg')">
 	<div class="login-box text-center">
 		<div class="login-logo">
 			<a href="login.php"><b>Dental Like</b></a>
 		</div>
 		<div class="login-box-body">
-		<form action="categoria.php" method="get">
+		<form action="views/articulo.php" method="get">
 					<h1>Login</h1>
 					<div class="form-group has-feedback">
 						<input type="text" class="form-control" placeholder="Usuario">
@@ -50,11 +50,11 @@
 	</div>
 
 	<!-- jQuery 2.1.4 -->
-    <script src="../public/js/jQuery-2.1.4.min.js"></script>
+    <script src="public/js/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
     <!-- iCheck -->
-    <script src="../public/js/icheck.min.js"></script>
+    <script src="public/js/icheck.min.js"></script>
     <script>
       $(function() {
         $('input').iCheck({

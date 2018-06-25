@@ -1,117 +1,115 @@
 var tabla;
 
-function init(){
-    mostrarFormulario(false);
-    listar();
+	function init(){
+		mostrarform(false);
+		listar();
 
-    $("#formulario").on("submit", function(e){
-        guardaryeditar(e);
-    })
+		$("#formulario").on("submit",function(e)
+		{
+			guardaryeditar(e);	
+		})
+	}
 
-}
+	function limpiar(){
+        $("#nombre").val("");
+        $("#tipopersona").val("");
+        $("#tipodocumento").val("");
+        $("#numdocumento").val("");
+        $("#direccion").val("");
+        $("#telefono").val("");
+        $("#email").val("");
+		$("#idpersona").val("");
+	}
 
-function limpiar(){
-    $("#idpersona").val("");
-    $("#nombre").val("");
-    $("#tipopersona").val("");
-    $("#tipodocumento").val("");
-    $("#numdocumento").val("");
-    $("#direccion").val("");
-    $("#telefono").val("");
-    $("#email").val("");
-}
+	function mostrarform(flag){
+		limpiar();
+		if (flag){
+			$("#listadoregistros").hide();
+			$("#formularioregistros").show();
+			$("#btnGuardar").prop("disabled",false);
+			$("#btnagregar").hide();
+		}
 
-function mostrarFormulario(flag){
-    limpiar();
-    if(flag){
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("$btnGuardar").prop("disabled",false);
-    }
-    else{
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-    }
-}
+		else{
+			$("#listadoregistros").show();
+			$("#formularioregistros").hide();
+			$("#btnagregar").show();
+		}
+	}
 
-function cancelarFormulario(){
-    limpiar();
-    mostrarFormulario(false);
-}
+	function cancelarform(){
+		limpiar();
+		mostrarform(false);
+	}
 
-function listar(){
-    tabla = $('#tbllistado').dataTable(
-        {
-            /**
-             * procesamiento
-             * paginacion y filtrado
-             * elementos de control
-             */
-            "aProcessing": true, 
-            "aServerSide": true,
-            dom: 'Bfrtip',
-            buttons:    [
-                            'copyHtml5',
-                            'excelHtml5',
-                            'csvHtml5',
-                            'pdf'
-                        ],
-                "ajax": {
-    
-                        url: '../ajax/persona.php?op=listar',
-                        type: "get",
-                        dataType: "json",
-                        error: function(e){
-                            console.log(e.responseText);
-                        }
-                },
-                /**
-                 * paginacion
-                 * orden de datos
-                 */
-                "bDestroy": true,
-                "iDisplayLength": 5,
-                "order": [[0, "asc"]] 
-        }).DataTable();
-}
+	function listar(){
+		tabla=$('#tbllistado').dataTable(
+		{
+			"aProcessing": true,//Activamos el procesamiento del datatables
+			"aServerSide": true,//Paginación y filtrado realizados por el servidor
+			dom: 'Bfrtip',//Definimos los elementos del control de tabla
+			buttons: [		          
+						'copyHtml5',
+						'excelHtml5',
+						'csvHtml5',
+						'pdf'
+					],
+			"ajax":
+					{
+						url: '../ajax/persona.php?op=listar',
+						type : "get",
+						dataType : "json",						
+						error: function(e){
+							console.log(e.responseText);	
+						}
+					},
+			"bDestroy": true,
+			"iDisplayLength": 5,//Paginación
+			"order": [[ 0, "desc" ]]//Ordenar (columna,orden)
+		}).DataTable();
+	}
+	
 
-function guardaryeditar(e)
-{
-    e.preventDefault();
-    $("#btnGuardar").prop("disabled",true);
-    var formData = new FormData($("#formulario")[0]);
+	function guardaryeditar(e){
+		e.preventDefault(); 
+		$("#btnGuardar").prop("disabled",true);
+		var formData = new FormData($("#formulario")[0]);
 
-    $.ajax({
-        url: "../ajax/persona.php?op=guardaryeditar",
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
+		$.ajax({
+			url: "../ajax/persona.php?op=guardaryeditar",
+			type: "POST",
+			data: formData,
+			contentType: false,
+			processData: false,
 
-        success: function(datos)
-        {
-            alert(datos);
-            mostrarFormulario(false);
-            tabla.ajax.reload();
-        }
-    });
+			success: function(datos)
+			{                    
+				bootbox.alert(datos);	          
+				mostrarform(false);
+				tabla.ajax.reload();
+			}
 
-    limpiar();
-}
+		});
+		limpiar();
+	}
 
-function mostrar(idpersona){
-    $.post("../ajax/persona.php?op=mostrar",{idpersona : idpersona},function(data, status) {
-        data = JSON.parse(data);
-        mostrarFormulario(true);
+	function mostrar(idpersona){
+		$.post("../ajax/persona.php?op=mostrar",{idpersona : idpersona}, function(data, status)
+		{
+			data = JSON.parse(data);		
+			mostrarform(true);
 
-        $("#nombre").val(data.nombre);
-        $("#tipopersona").val(data.tipopersona);
-        $("#tipodocumento").val(data.tipodocumento);
-        $("#numdocumento").val(data.numdocumento);
-        $("#direccion").val(data.direccion);
-        $("#telefono").val(data.telefono);
-        $("#email").val(data.email);
-    })
-}
+            $("#nombre").val(data.nombre);
+            $("#tipopersona").val(data.tipopersona);
+            $("#tipodocumento").val(data.tipodocumento);
+            $("#numdocumento").val(data.numdocumento);
+            $("#direccion").val(data.direccion);
+            $("#telefono").val(data.telefono);
+            $("#email").val(data.email);
+            $("#idpersona").val(data.idpersona);
+
+		})
+	}
+
 
 init();

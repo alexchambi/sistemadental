@@ -11,50 +11,49 @@
 	switch ($_GET["op"]){
 		case 'guardaryeditar':	if (empty($idcategoria)){
 									$rspta=$categoria->insertar($nombre,$descripcion);
-									echo $rspta ? "Categoría registrada" : "Categoría no se pudo registrar";
+									echo $rspta ? "Categoria registrada" : "Categoriyya no registrada";
 								}
 								else {
 									$rspta=$categoria->editar($idcategoria,$nombre,$descripcion);
-									echo $rspta ? "Categoría actualizada" : "Categoría no se pudo actualizar";
+									echo $rspta ? "Categoria actualizada" : "Categoria no actualizda";
 								}
 								break;
 
 		case 'desactivar':		$rspta=$categoria->desactivar($idcategoria);
-								echo $rspta ? "Categoría Desactivada" : "Categoría no se puede desactivar";
+								echo $rspta ? "Categoria desactivada" : "Categoria no desactivada";
 								break;
 		
 
 		case 'activar':			$rspta=$categoria->activar($idcategoria);
-								echo $rspta ? "Categoría activada" : "Categoría no se puede activar";
+								echo $rspta ? "Categoria activada" : "Categoria no activada";
 								break;
 		
 
 		case 'mostrar':			$rspta=$categoria->mostrar($idcategoria);
-								//Codificar el resultado utilizando json
+								
 								echo json_encode($rspta);
 								break;
 		
 
 		case 'listar':			$rspta=$categoria->listar();
-								//Vamos a declarar un array
+								
 								$data= Array();
 
 								while ($reg=$rspta->fetch_object()){
 									$data[]=array(
-										"0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
-											' <button class="btn btn-danger" onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>':
-											'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
-											' <button class="btn btn-primary" onclick="activar('.$reg->idcategoria.')"><i class="fa fa-check"></i></button>',
+										"0"=>($reg->condicion)?'<button onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+											' <button onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>':
+											' <button onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+											' <button onclick="activar('.$reg->idcategoria.')"><i class="fa fa-check"></i></button>',
 										"1"=>$reg->nombre,
 										"2"=>$reg->descripcion,
-										"3"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
-										'<span class="label bg-red">Desactivado</span>'
+										"3"=>($reg->condicion)?'<span class="label bg-green">1</span>':'<span class="label bg-red">0</span>'
 										);
 								}
 								$results = array(
-									"sEcho"=>1, //Información para el datatables
-									"iTotalRecords"=>count($data), //enviamos el total registros al datatable
-									"iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+									"sEcho"=>1, 
+									"iTotalRecords"=>count($data), 
+									"iTotalDisplayRecords"=>count($data),
 									"aaData"=>$data);
 								echo json_encode($results);
 

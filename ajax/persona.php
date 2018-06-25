@@ -12,47 +12,47 @@
     $telefono =isset($_POST["telefono"])? limpiarCadena($_POST["telefono"]):"";
     $email =isset($_POST["email"])? limpiarCadena($_POST["email"]):"";
 
-
-    switch ($_GET["op"]) {
-        case 'guardaryeditar':  if(empty($idpersona)){
-                                    $respuesta = $persona->insertar($nombre, $tipopersona, $tipodocumento, $numdocumento, $direccion, $telefono, $email);
-                                    
-                                    echo $respuesta ? "Persona Regsitrado": "persona no registrada";
-                                    //insertar si no existe el txtidcategoria
+    switch ($_GET["op"]){
+        case 'guardaryeditar':	if (empty($idpersona)){
+                                    $rspta=$persona->insertar($nombre, $tipopersona, $tipodocumento, $numdocumento, $direccion, $telefono, $email);
+                                    echo $rspta ? "Persona registrada" : "Persona no registrada";
                                 }
-                                else{
-                                    $respuesta = $persona->editar($idpersona, $nombre, $tipopersona, $numdocumento, $direccion, $telefono, $email);
-                                    
-                                    echo $respuesta ? "Persona Actualizada": "Persona no actualizada";
+                                else {
+                                    $rspta=$persona->editar($idpersona ,$nombre, $tipopersona, $tipodocumento, $numdocumento, $direccion, $telefono, $email);
+                                    echo $rspta ? "Persona actualizada" : "Persona no actualizda";
                                 }
                                 break;
+        
 
-        case 'mostrar':         $respuesta = $persona->mostrar($idpersona);
-                                echo json_encode($respuesta);
+        case 'mostrar':			$rspta=$persona->mostrar($idpersona);
+                                
+                                echo json_encode($rspta);
                                 break;
+        
 
-        case 'listar':          $respuesta = $persona->listar();
-                                $datos = Array();
-                                while($registro = $respuesta->fetch_object()){
-                                    $datos[] = array(
-                                        "0"=>'<button class="btn" onclick="mostrar('.$registro->idpersona.')">Editar</button>',
-                                        "1"=>$registro->nombre,
-                                        "2"=>$registro->tipopersona,
-                                        "3"=>$registro->tipodocumento,
-                                        "4"=>$registro->numdocumento,
-                                        "5"=>$registro->direccion,
-                                        "6"=>$registro->telefono,
-                                        "7"=>$registro->email
-                                    );
+        case 'listar':			$rspta=$persona->listar();
+                                
+                                $data= Array();
+
+                                while ($reg=$rspta->fetch_object()){
+                                    $data[]=array(
+                                        "0"=>'<button onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>',
+                                        "1"=>$reg->nombre,
+                                        "2"=>$reg->tipopersona,
+                                        "3"=>$reg->tipodocumento,
+                                        "4"=>$reg->numdocumento,
+                                        "5"=>$reg->direccion,
+                                        "6"=>$reg->telefono,
+                                        "7"=>$reg->email
+                                        );
                                 }
-                                $resultado = array(
-                                    //1 = informacion para el data tables
-                                    "sEcho"=>1,
-                                    "iTotalRecords"=>count($datos),
-                                    "iTotalDisplayRecords"=>count($datos),
-                                    "aaData"=>$datos
-                                );
-                                echo json_encode($resultado);
+                                $results = array(
+                                    "sEcho"=>1, 
+                                    "iTotalRecords"=>count($data), 
+                                    "iTotalDisplayRecords"=>count($data),
+                                    "aaData"=>$data);
+                                echo json_encode($results);
+
                                 break;
     }
 ?>

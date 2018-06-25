@@ -1,6 +1,5 @@
 var tabla;
 
-//Función que se ejecuta al inicio
 	function init(){
 		mostrarform(false);
 		listar();
@@ -11,14 +10,12 @@ var tabla;
 		})
 	}
 
-	//Función limpiar
 	function limpiar(){
 		$("#nombre").val("");
 		$("#descripcion").val("");
 		$("#idcategoria").val("");
 	}
 
-	//Función mostrar formulario
 	function mostrarform(flag){
 		limpiar();
 		if (flag){
@@ -35,13 +32,11 @@ var tabla;
 		}
 	}
 
-	//Función cancelarform
 	function cancelarform(){
 		limpiar();
 		mostrarform(false);
 	}
 
-	//Función Listar
 	function listar(){
 		tabla=$('#tbllistado').dataTable(
 		{
@@ -68,10 +63,10 @@ var tabla;
 			"order": [[ 0, "desc" ]]//Ordenar (columna,orden)
 		}).DataTable();
 	}
-	//Función para guardar o editar
+	
 
 	function guardaryeditar(e){
-		e.preventDefault(); //No se activará la acción predeterminada del evento
+		e.preventDefault(); 
 		$("#btnGuardar").prop("disabled",true);
 		var formData = new FormData($("#formulario")[0]);
 
@@ -108,7 +103,7 @@ var tabla;
 
 	//Función para desactivar registros
 	function desactivar(idcategoria){
-		bootbox.confirm("¿Está Seguro de desactivar la Categoría?", function(result){
+		bootbox.confirm("desactivar la Categoria?", function(result){
 			if(result)
 			{
 				$.post("../ajax/categoria.php?op=desactivar", {idcategoria : idcategoria}, function(e){
@@ -119,9 +114,8 @@ var tabla;
 		})
 	}
 
-	//Función para activar registros
 	function activar(idcategoria){
-		bootbox.confirm("¿Está Seguro de activar la Categoría?", function(result){
+		bootbox.confirm("activar la Categoria?", function(result){
 			if(result)
 			{
 				$.post("../ajax/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
