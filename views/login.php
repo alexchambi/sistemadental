@@ -22,7 +22,7 @@
 			<a href="login.php"><b>Dental Like</b></a>
 		</div>
 		<div class="login-box-body">
-		<form action="views/articulo.php" method="get">
+		<form action="views/home.php" method="get">
 					<h1>Login</h1>
 					<div class="form-group has-feedback">
 						<input type="text" class="form-control" placeholder="Usuario">

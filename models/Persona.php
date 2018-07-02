@@ -9,16 +9,16 @@
 
 		}
 
-		public function insertar($nombre, $tipopersona, $tipodocumento, $numdocumento, $direccion, $telefono, $email){
+		public function insertar($nombre, $tipopersona, $sexo, $tipodocumento, $numdocumento, $direccion, $telefono, $email){
 
-			$sql="INSERT INTO persona(nombre, tipopersona, tipodocumento, numdocumento, direccion, telefono, email)
-			VALUES ('$nombre', '$tipopersona', '$tipodocumento', '$numdocumento', '$direccion', '$telefono', '$email')";
+			$sql="INSERT INTO persona(nombre, tipopersona, sexo, tipodocumento, numdocumento, direccion, telefono, email)
+			VALUES ('$nombre', '$tipopersona', '$sexo', '$tipodocumento', '$numdocumento', '$direccion', '$telefono', '$email')";
 			return ejecutarConsulta($sql);
 		}
 
-		public function editar($idpersona ,$nombre, $tipopersona, $tipodocumento, $numdocumento, $direccion, $telefono, $email){
+		public function editar($idpersona ,$nombre, $tipopersona, $sexo, $tipodocumento, $numdocumento, $direccion, $telefono, $email){
 
-			$sql="UPDATE persona SET nombre='$nombre', tipopersona='$tipopersona', tipodocumento='$tipodocumento', numdocumento='$numdocumento', direccion='$direccion', telefono='$telefono', email='$email' WHERE idpersona='$idpersona'";
+			$sql="UPDATE persona SET nombre='$nombre', tipopersona='$tipopersona', sexo='$sexo', tipodocumento='$tipodocumento', numdocumento='$numdocumento', direccion='$direccion', telefono='$telefono', email='$email' WHERE idpersona='$idpersona'";
 			return ejecutarConsulta($sql);
 		}
 

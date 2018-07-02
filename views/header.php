@@ -15,6 +15,12 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
 
+<!-- Ionicons -->
+<link rel="stylesheet" href="../public/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="../public/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../public/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
     <link rel="stylesheet" href="../public/css/_all-skins.min.css">
     <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
     <link rel="shortcut icon" href="../public/img/dentalicon.png">
@@ -33,7 +39,7 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="listado.html" class="logo">
+        <a href="home.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini">Sis</span>
           <!-- logo for regular state and mobile devices -->
@@ -112,7 +118,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="persona.php"><i class="fa fa-circle-o"></i> Persona</a></li>
-                <li><a href="historiaclinica.php"><i class="fa fa-circle-o"></i> Historias Clinicas</a></li>
+                <li><a href="historia.php"><i class="fa fa-circle-o"></i> Historias Clinicas</a></li>
               </ul>
             </li>
 
@@ -123,7 +129,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ingreso.php"><i class="fa fa-circle-o"></i> Cita</a></li>
+                <li><a href="citas.php"><i class="fa fa-circle-o"></i> Cita</a></li>
               </ul>
             </li>
             <li class="treeview">
