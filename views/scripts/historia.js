@@ -57,7 +57,7 @@ var tabla;
 					],
 			"ajax":
 					{
-						url: '../ajax/persona.php?op=listar',
+						url: '../ajax/historia.php?op=listar',
 						type : "get",
 						dataType : "json",						
 						error: function(e){
@@ -77,7 +77,7 @@ var tabla;
 		var formData = new FormData($("#formulario")[0]);
 
 		$.ajax({
-			url: "../ajax/persona.php?op=guardaryeditar",
+			url: "../ajax/historia.php?op=guardaryeditar",
 			type: "POST",
 			data: formData,
 			contentType: false,
@@ -95,7 +95,7 @@ var tabla;
 	}
 
 	function mostrar(idpersona){
-		$.post("../ajax/persona.php?op=mostrar",{idpersona : idpersona}, function(data, status)
+		$.post("../ajax/historia.php?op=mostrar",{idpersona : idpersona}, function(data, status)
 		{
 			data = JSON.parse(data);		
 			mostrarform(true);

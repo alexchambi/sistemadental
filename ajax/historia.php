@@ -37,7 +37,7 @@
 
                                 while ($reg=$rspta->fetch_object()){
                                     $data[]=array(
-                                        "0"=>'<button onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>',
+                                        "0"=>'<button class="btn btn-success"onclick="mostrar('.$reg->idpersona.')">Historia Clinica <i class="fa fa-pencil"></i></button>',
                                         "1"=>$reg->nombre,
                                         "2"=>$reg->tipopersona,
                                         "3"=>$reg->sexo,
