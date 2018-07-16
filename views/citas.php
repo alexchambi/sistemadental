@@ -167,27 +167,27 @@ require 'footer.php';
       //Random default events
       events    : [
         {
-          title          : 'All Day Event',
+          title          : 'Cita Maria',
           start          : new Date(y, m, 1),
           backgroundColor: '#f56954', //red
           borderColor    : '#f56954' //red
         },
         {
-          title          : 'Long Event',
+          title          : 'Sesiones de Juan',
           start          : new Date(y, m, d - 5),
           end            : new Date(y, m, d - 2),
-          backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
+          backgroundColor: '#00a65a', //yellow
+          borderColor    : '#00a65a'  //yellow
         },
         {
-          title          : 'Meeting',
+          title          : '',
           start          : new Date(y, m, d, 10, 30),
           allDay         : false,
           backgroundColor: '#0073b7', //Blue
           borderColor    : '#0073b7' //Blue
         },
         {
-          title          : 'Lunch',
+          title          : 'Sofia',
           start          : new Date(y, m, d, 12, 0),
           end            : new Date(y, m, d, 14, 0),
           allDay         : false,
@@ -195,7 +195,7 @@ require 'footer.php';
           borderColor    : '#00c0ef' //Info (aqua)
         },
         {
-          title          : 'Birthday Party',
+          title          : 'Flor',
           start          : new Date(y, m, d + 1, 19, 0),
           end            : new Date(y, m, d + 1, 22, 30),
           allDay         : false,
@@ -203,10 +203,10 @@ require 'footer.php';
           borderColor    : '#00a65a' //Success (green)
         },
         {
-          title          : 'Click for Google',
+          title          : 'Dagoberto',
           start          : new Date(y, m, 28),
           end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
+          allDay         : false,
           backgroundColor: '#3c8dbc', //Primary (light-blue)
           borderColor    : '#3c8dbc' //Primary (light-blue)
         }
